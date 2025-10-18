@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moodlite — Messages</title>
+  <link rel="stylesheet" href="css/recipient.css" />
+</head>
+<body>
+
+  <!-- 🌙 Header (same style as menu page) -->
+  <div class="top-bar">
+    <!-- Back to Home -->
+    <a href="index.html" class="home-button">
+      <img src="assets/icons/back-home-icon.png" alt="Home Icon" />
+      <span>Home</span>
+    </a>
+
+    <!-- Page Title -->
+    <h1 class="messages-title">Messages</h1>
+
+    <!-- Back to Menu -->
+    <a href="menu.html" class="menu-button">
+      <img src="assets/icons/back-message-icon.png" alt="Menu Icon" />
+      <span>Menu</span>
+    </a>
+  </div>
+
+  <!-- 📨 Notification -->
+  <div class="notification-wrapper">
+    <div class="notification hidden" id="notification">
+      🌙 Someone sent you something sweet — tap to open!
+    </div>
+
+    <!-- 🎁 Gift section -->
+    <div class="gift hidden" id="gift">
+      <img id="giftImage" src="" alt="Gift" class="gift-img">
+      <p id="giftText" class="gift-message"></p>
+
+      <!-- 💬 Emoji Reactions -->
+      <div class="reactions hidden">
+        <button class="emoji-btn">💖</button>
+        <button class="emoji-btn">😊</button>
+        <button class="emoji-btn">🥰</button>
+        <button class="emoji-btn">🌙</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle">
+      🌙 Toggle Dark Mode
+    </button>
+
+  <script src="js/recipient.js"></script>
+</body>
+</html>

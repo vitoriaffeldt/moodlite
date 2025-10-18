@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moodlite Menu</title>
+  <link rel="stylesheet" href="css/menu.css" />
+</head>
+<body>
+  <!-- Top Navigation Bar with Title -->
+  <div class="top-bar">
+    <!-- Back to Home -->
+    <a href="index.html" class="home-button">
+      <img src="assets/icons/back-home-icon.png" alt="Home Icon" />
+      <span>Home</span>
+    </a>
+    <!-- Page Title -->
+    <h1 class="menu-title">Menu</h1>
+    <!-- Back to Messages -->
+    <a href="recipient.html" class="message-button">
+      <img src="assets/icons/back-message-icon.png" alt="Messages Icon" />
+      <span>Messages</span>
+    </a>
+  </div>
+  <main>
+    <h2 class="section-heading">What would you like to send today?</h2>
+    <section class="menu-items" data-item="">
+      <div class="menu-card">
+        <img src="assets/icons/tiramissu.png" alt="Tiramissu" />
+        <p>Tiramissu</p>
+        <button class="send-btn" onclick="openModal('Tiramissu')">
+          Send
+        </button>
+      </div>
+
+      <div class="menu-card">
+        <img src="assets/icons/bubble-tea.png" alt="Bubble Tea"/>
+        <p>Bubble Tea</p>
+        <button class="send-btn" onclick="openModal('Bubble Tea')">
+          Send
+        </button>
+      </div>
+
+      <div class="menu-card">
+        <img src="assets/icons/cute-coffee.png" alt="Cute Coffee" />
+        <p>Cute Coffee</p>
+        <button class="send-btn" onclick="openModal('Cute Coffee')">
+          Send
+        </button>
+      </div>
+
+      <div class="menu-card">
+        <img src="assets/icons/egg-tart.png" alt="Egg Tart" />
+        <p>Egg Tart</p>
+        <button class="send-btn" onclick="openModal('Egg Tart')">
+          Send
+        </button>
+      </div>
+
+      <div class="menu-card">
+        <img src="assets/icons/noodle-soup.png" alt="Noodle Soup" />
+         <p>Noodle Soup</p>
+        <button class="send-btn" onclick="openModal('Noodle Soup')">
+          Send
+        </button>
+      </div>
+    </section>
+  </main>
+   <!-- Modal for sending message -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="selected-item-name" class="selected-item-name"></p>
+        <textarea id="user-message" placeholder="Write a message (optional)"></textarea>
+        <button class="confirm-send" id="confirm-send"
+          >Send
+        </button>
+        <button class="cancel-send"  id="cancel-send"
+          >Cancel
+        </button>
+      </div>
+    </div>
+   <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle">
+      🌙 Toggle Dark Mode
+    </button>
+    <script src="js/menu.js"></script>
+</body>
+</html>
