@@ -1,10 +1,32 @@
+:root {
+  --bg-color: #fdf6e3;
+  --text-color: #333;
+  --accent-color: #ffd13b80; /* moonlight hover glow */
+  --primary-color: #68ce91;
+  --primary-color-hover: #68b587;
+  --alert-color: #dd3434;
+  --card-color: #fff8e1;
+  --border-color: #ffead0;
+}
+
+/* Dark mode overrides */
+body.dark {
+  --bg-color: #1b1b1b;
+  --text-color: #f8f8f2;
+  --primary-color: #68ce91;
+  --primary-color-hover: #68b587;
+  --alert-color: #f27575;
+  --card-color: #2c2c2c;
+  --border-color: #3d3d3d;
+}
 
 /* General reset and base */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fdf6e3;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Buttons */
@@ -15,7 +37,6 @@ body {
   gap: 40px;
 }
 
-/* Each button */
 .message-button,
 .home-button {
   display: flex;
@@ -31,7 +52,6 @@ body {
   cursor: pointer;
 }
 
-/* Icon inside the button */
 /* Targets the <img> inside the buttons only */
 .message-button img,
 .home-button img{
@@ -40,15 +60,13 @@ body {
   margin-bottom: 8px;
 }
 
-/* Text below icon */
 .message-button span,
 .home-button span {
   font-size: 14px;
-  color:  #7da77d;;
+  color: var(--text-color);
   font-weight: bold;
 }
 
-/* Hover effect */
 .message-button:hover,
 .home-button:hover {
   background-color: #ffd13b80; 
@@ -59,75 +77,69 @@ body {
   margin-left: 10px;
 }
 
-/* Top bar with back/home, title, and message button */
+/* TOP BAR STYLES */
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color:#ffce2d42;
+  background-color: var(--card-color);
 }
 
-/* Centered Menu Title */
 .menu-title {
   font-family: 'Georgia', serif;
   font-size: 32px;
   font-weight: bold;
-  color: #A9CDA9; 
+  color: var(--text-color); 
   margin: 0;
 }
 
-/* Section subtitle */
 .section-heading {
   text-align: center;
   font-size: 20px;
   margin: 30px 0 10px 0;
-  color: #68b587;
-;
+  color: var(--text-color);
 }
 
 /* MENU GRID SECTION */
 .menu-items {
-  display: grid; /* We use grid to create a clean layout */
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 20px;
   padding: 20px;
   justify-items: center;
 }
 
-/* Individual Card Styles */
 .menu-card {
-  background-color: #a9cda936;
+  background-color: var(--card-color);
+  border: 1px solid var(--border-color);
   padding: 15px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(255, 179, 0, 0.145);
   text-align: center;
   transition: transform 0.2s ease;
 }
 
 .menu-card:hover {
-  transform: scale(1.05); /* Grows a bit when hovered */
+  transform: scale(1.05);
 }
 
-/* Food images */
 .menu-card img {
   width: 80px;
   height: 80px;
   object-fit: contain;
   margin-bottom: 10px;
 }
-/* Item name */
+
 .menu-card p {
   font-size: 16px;
   font-weight: bold;
-  color:#68b587;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
-/* Send Button */
 .send-btn {
   color: white;
-  background-color: #a9cda9;
+  background-color: var(--primary-color);
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -137,7 +149,7 @@ body {
 }
 
 .send-btn:hover {
-  background-color: #68b587;
+  background-color: var(--primary-color-hover);
 }
 
 /* Modal Styles */
@@ -147,20 +159,19 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* Hide modal by default */
 .hidden {
   display: none;
 }
 
 .modal-content {
-  background-color: #7da77d70;
+  background-color: var(--card-color);
   padding: 20px;
   border-radius: 12px;
   width: 90%;
@@ -176,7 +187,7 @@ textarea {
   margin-top: 10px;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #fef8e9;
+  border: 1px solid var(--border-color);
   resize: none;
 }
 
@@ -187,15 +198,15 @@ textarea {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background-color: #a9cda9;
-  color: rgb(255, 255, 255);
+  background-color: var(--primary-color);
+  color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
 .confirm-send:hover,
 .cancel-send:hover {
-  background-color: #68b587;
+  background-color: var(--primary-color-hover);
 }
 
 .close-btn {
@@ -208,41 +219,20 @@ textarea {
 
 .selected-item-name {
   font-size: 18px;
-  color: #ffffff87;
+  color: var(--text-color);
   font-weight: bold;
-  text-shadow: 1px 1px 10px #cce79e;
   margin-bottom: 10px;
 }
 
 /* Dark Mode */
-body.dark {
-  background-color: #1f1f1f;
-  color: #f0f0f0;
-}
-
 body.dark .top-bar {
-  background-color: #1b1b1b;
-  color: #f0f0f0;
-}
-
-body.dark .menu-title {
-  font-family: 'Georgia', serif;
-  font-size: 32px;
-  font-weight: bold;
-  color: #a9cda9b1; 
-  margin: 0;
-}
-
-body.dark .section-heading {
-  text-align: center;
-  font-size: 20px;
-  margin: 30px 0 10px 0;
-  color: #68b58786;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 body.dark .send-btn {
   color: rgba(255, 255, 255, 0.693);
-  background-color: #a9cda98a;
+  background-color: var(--primary-color-hover);
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -252,13 +242,13 @@ body.dark .send-btn {
 }
 
 body.dark .send-btn:hover {
-  background-color: #68b587a9;
+  background-color: var(--primary-color);
 }
 
 body.dark .menu-card p {
   font-size: 16px;
   font-weight: bold;
-  color:#68b587a9;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
@@ -269,15 +259,15 @@ body.dark .cancel-send {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background-color: rgba(169, 205, 169, 0.718);
-  color: rgba(255, 255, 255, 0.653);
+  background-color: var(--primary-color-hover);
+  color: var(--text-color);
   font-weight: bold;
   cursor: pointer;
 }
 
 body.dark .confirm-send:hover,
 body.dark .cancel-send:hover {
-  background-color: #68b587bd;
+  background-color: var(--primary-color);
 }
 
 #darkModeToggle {
@@ -302,7 +292,7 @@ body.dark .cancel-send:hover {
     height: 60px;
   }
 
- /*stack buttons vertically on small screens*/ 
+/*stack buttons vertically on small screens*/ 
 }
 @media (max-width: 600px) {
   .nav-buttons {
