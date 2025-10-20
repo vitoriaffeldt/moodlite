@@ -1,6 +1,6 @@
 :root {
   --bg-color: #fdf6e3;
-  --text-color: #333;
+  --text-color: #3d3d3d;
   --accent-color: #ffd13b80; /* moonlight hover glow */
   --primary-color: #68ce91;
   --primary-color-hover: #68b587;
@@ -12,13 +12,14 @@
 /* Dark mode overrides */
 body.dark {
   --bg-color: #1b1b1b;
-  --text-color: #f8f8f2;
+  --text-color: #fdf6e3a5;
   --primary-color: #68ce91;
   --primary-color-hover: #68b587;
   --alert-color: #f27575;
   --card-color: #2c2c2c;
   --border-color: #3d3d3d;
 }
+
 
 /* General reset and base */
 body {
@@ -69,7 +70,7 @@ body {
 
 .menu-button:hover,
 .home-button:hover {
-  background-color: #ffd13b80; 
+  background-color: var(--accent-color);
 }
 
 .nav-icons img {
@@ -83,7 +84,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: var(--card-color);
+  background-color: var(--bg-color);
 }
 
 .messages-title {
@@ -141,7 +142,7 @@ body {
   padding: 20px;
   margin: 20px;
   border-radius: 12px;
-  background-color: #f3eee8bf;
+  background-color: var(--card-color);
   text-align: center;
   box-shadow: 0 0 10px #00000047;
 }
@@ -164,10 +165,6 @@ body {
   transform: scale(1.2);
 }
 
-body.dark .top-bar {
-  background-color: #1b1b1b;
-}
-
 body.dark .notification {
   color: var(--alert-color);
   background-color: var(--card-color);
@@ -188,6 +185,10 @@ body.dark .gift-message {
   margin-top: 10px;
 }
 
+body.dark .top-bar {
+  background-color: var(--bg-color);
+}
+
 #darkModeToggle {
   position: fixed;
   bottom: 10px;
@@ -200,5 +201,14 @@ body.dark .gift-message {
 }
 
 #darkModeToggle:hover {
-  background-color: #ffd13b80;
+  background-color: var(--accent-color);
+}
+
+/*stack buttons vertically on small screens*/ 
+@media (max-width: 600px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }
