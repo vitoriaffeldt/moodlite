@@ -1,6 +1,6 @@
 :root {
   --bg-color: #fdf6e3;
-  --text-color: #333;
+  --text-color: #3d3d3d;
   --accent-color: #ffd13b80; /* moonlight hover glow */
   --primary-color: #68ce91;
   --primary-color-hover: #68b587;
@@ -12,7 +12,7 @@
 /* Dark mode overrides */
 body.dark {
   --bg-color: #1b1b1b;
-  --text-color: #f8f8f2;
+  --text-color: #fdf6e3a5;
   --primary-color: #68ce91;
   --primary-color-hover: #68b587;
   --alert-color: #f27575;
@@ -69,7 +69,7 @@ body {
 
 .message-button:hover,
 .home-button:hover {
-  background-color: #ffd13b80; 
+  background-color: var(--accent-color);
 }
 
 .nav-icons img {
@@ -260,7 +260,7 @@ body.dark .cancel-send {
   border: none;
   border-radius: 8px;
   background-color: var(--primary-color-hover);
-  color: var(--text-color);
+  color: rgba(255, 255, 255, 0.693);
   font-weight: bold;
   cursor: pointer;
 }
@@ -279,6 +279,10 @@ body.dark .cancel-send:hover {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+#darkModeToggle:hover {
+  background-color: var(--accent-color);
 }
 
 /* Mobile Responsive */
