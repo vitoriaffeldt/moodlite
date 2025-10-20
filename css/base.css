@@ -1,0 +1,41 @@
+
+/* Light mode defaults */
+:root {
+  --bg-color: #fdf6e3;
+  --text-color: #3d3d3d;
+  --accent-color: #ffd13b80; /* moonlight hover glow */
+  --primary-color: #68ce91;
+  --primary-color-hover: #68b587;
+  --alert-color: #dd3434;
+  --card-color: #fff8e1;
+  --border-color: #ffead0;
+}
+
+/* Dark mode overrides */
+body.dark {
+  --bg-color: #1b1b1b;
+  --text-color: #fdf6e3a5;
+  --primary-color: #68ce91;
+  --primary-color-hover: #68b587;
+  --alert-color: #f27575;
+  --card-color: #2c2c2c;
+  --border-color: #3d3d3d;
+}
+
+/* Smooth transitions for cozy theme changes */
+:root,
+body {
+  transition: background-color 360ms ease, color 360ms ease;
+}
+
+.top-bar,
+.menu-card,
+.notification,
+.gift,
+.modal-content,
+button,
+.send-btn,
+.icon-button {
+  transition: background-color 360ms ease, color 360ms ease, box-shadow 360ms ease,
+              transform 200ms ease, border-color 360ms ease;
+}
