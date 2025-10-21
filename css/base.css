@@ -1,5 +1,11 @@
-/* Light mode defaults */
+/* ================================
+   Base Stylesheet
+   Shared variables, resets, and reusable components
+   ================================ */
+
+/* 1️⃣ Variables */
 :root {
+  /* Light mode */
   --bg-color: #fdf6e3;
   --text-color: #3d3d3d;
   --accent-color: #ffd13b80; /* moonlight hover glow */
@@ -8,17 +14,15 @@
   --alert-color: #dd3434;
   --card-color: #fff8e1;
   --border-color: #ffead0;
-  --font-main: "Poppins", sans-serif;
-  --font-accent: "Playfair Display", serif;
-  --fs-small: 0.875rem;   /* ~14px */
-  --fs-base: 1rem;        /* ~16px */
-  --fs-medium: 1.125rem;  /* ~18px */
-  --fs-large: 1.5rem;     /* ~24px */
-  --fs-title: 2rem;       /* ~32px */
+
+  /* Font + Breakpoints */
+  --font-title: 'Georgia', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Breakpoints */
   --mobile: 480px;
   --tablet: 768px;
-  --laptop: 1024px;
-  --desktop: 1280px;
+  --desktop: 1024px;
 }
 
 /* Dark mode overrides */
@@ -33,33 +37,124 @@ body.dark {
   --border-color: #3d3d3d;
 }
 
-/* Smooth transitions for cozy theme changes */
-:root,
-body {
-  transition: background-color 360ms ease, color 360ms ease;
+/* ================================
+   2️⃣ Global Reset & Base Elements
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.top-bar,
-.menu-card,
-.notification,
-.gift,
-.modal-content,
-button,
-.send-btn,
-.icon-button {
-  transition: background-color 360ms ease, color 360ms ease, box-shadow 360ms ease,
-              transform 200ms ease, border-color 360ms ease;
-}
-
-@media (max-width: var(--tablet)) {
-  .menu-container {
-    padding: 1rem;
-  }
-  
-}
 body {
-  font-family: var(--font-main);
-  font-size: var(--fs-base);
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-family: var(--font-body);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================================
+   3️⃣ Typography
+   ================================ */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Shared page titles */
+.top-title {
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+  text-align: center;
+}
+
+/* ================================
+   4️⃣ Layout Utilities
+   ================================ */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ================================
+   5️⃣ Shared UI Components
+   ================================ */
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Top Bar / Navigation */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+}
+
+.top-bar button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.top-bar button:hover {
+  color: var(--accent-color);
+}
+
+/* ================================
+   6️⃣ Responsive Adjustments
+   ================================ */
+@media (max-width: var(--tablet)) {
+  .top-title {
+    font-size: 24px;
+  }
+}
+
+#darkModeToggle {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color:#ffd13b38;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#darkModeToggle:hover {
+  background-color: var(--accent-color);
 }
