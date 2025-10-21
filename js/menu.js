@@ -48,19 +48,3 @@ confirmBtn.addEventListener("click", () => {
   // redirect to recipient page (where recipient.js will handle showing it)
   window.location.href = "recipient.html";
 });
-
-// Dark mode toggle logic
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-  const toggle = document.getElementById('darkModeToggle');
-
-  // Load saved preference
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('dark');
-  }
-
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    localStorage.setItem('darkMode', body.classList.contains('dark') ? 'enabled' : 'disabled');
-  });
-});
