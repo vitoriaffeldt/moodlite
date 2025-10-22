@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
   if  (localStorage.getItem("isLoggedIn") === "true") {
-    window.location.href = "menu.html";
+    window.location.href = "index.html";
   }
 
   form.addEventListener("submit", (e) => {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (username === "Vivi" && password === "moonlight") {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("username", username);
-      window.location.href = "menu.html";
+      window.location.href = "index.html";
     } else {
       alert("Invalid credentials. Please try again.");
     }
