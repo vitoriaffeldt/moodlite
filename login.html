@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login to Moodlite</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moodlite Login</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/login.css" />
 </head>
+
 <body>
-  <div class="login-container">
-    <h2>Enter Password to Continue</h2>
-    <input type="password" id="passwordInput" placeholder="Password" />
-    <button onclick="checkPassword()">Enter</button>
-    <p id="errorMessage" style="color: red;"></p>
+  <div class="login-container fade-in">
+    <h1 class="login-title">Moodlite🌙</h1>
+   
+    <form id="loginForm" class="login-form">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" class="login-btn">Enter</button>
+    </form>
   </div>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      const correctPassword = "moodcafe"; // Change this later
-
-      if (input === correctPassword) {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "menu.html";
-      } else {
-        document.getElementById('errorMessage').textContent = "Wrong password!";
-      }
-    }
-  </script>
+  <script src="js/theme.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
