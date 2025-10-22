@@ -1,24 +1,18 @@
-// ===== recipient.js =====
-// Purpose: Shows a vague notification; reveal gift & message when clicked; adds emoji reactions.
-
 document.addEventListener("DOMContentLoaded", () => {
   // Select important parts of the recipient page.
-  const notif = document.getElementById("notification");   // "You have a message" alert
-  const gift = document.getElementById("gift");            // Gift container.
-  const giftImg = document.getElementById("giftImage");    // Image shown after opening.
-  const giftText = document.getElementById("giftText");    // Message text. This method is fundamental for interacting with  specific HTML elements using JavaScript. Once an element is retrieved, its properties (like style, innerHTML, value, etc.) or attributes can be modified, or event listeners can be attached to it, enabling dynamic and interactive web pages.
-  const reactionsDiv = document.querySelector(".reactions"); // select and retrieve the first element within an HTML document that matches a specified CSS selector, in this case: emoji reactions section.
+  const notif = document.getElementById("notification");
+  const gift = document.getElementById("gift");       
+  const giftImg = document.getElementById("giftImage");
+  const giftText = document.getElementById("giftText");
+  const reactionsDiv = document.querySelector(".reactions");
 
   // Retrieve the last item sent from localStorage
   const raw = localStorage.getItem("moodlite_last");
   if (!raw) return; // if nothing sent, stop here
   const payload = JSON.parse(raw); // parse JSON to get { item, message, timestamp }
-
-  // Show vague notification (no spoilers)
+  
   notif.textContent = "Someone sent you something sweet — tap to open!";
   notif.classList.remove("hidden");
-
-  // When user clicks notification, reveal the gift
   notif.addEventListener("click", () => {
     notif.classList.add("hidden"); // hide notification
     gift.classList.remove('hidden');
@@ -47,3 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+if (!localStorage.getItem('isLoggedIn')) {
+  window.location.href = 'login.html'; // Redirect to login page
+}
+
+function logout() {
+  localStorage.removeItem('isLoggedIn'); // Clear login status
+  window.location.href = 'login.html';
+}
+
+document.getElementById('logout-btn').addEventListener('click', logout); // Logout lol
