@@ -117,3 +117,49 @@
 .fade-in {
   animation: fadeIn 0.6s ease-out;
 }
+
+.message-history {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-color);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+.message-history h2 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.message-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.message-history li {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+.message-history li:hover {
+  background: var(--accent-color);
+}
+
+.message-history .timestamp {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted, #999);
+  margin-top: 0.3rem;
+}
