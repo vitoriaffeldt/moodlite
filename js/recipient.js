@@ -6,18 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const reactionsDiv = document.querySelector(".reactions");
   const historyDiv = document.getElementById("history");
 
-  // Get last message
   const raw = localStorage.getItem("moodlite_last");
   if (!raw) return;
   const payload = JSON.parse(raw);
 
-  // Get or create message history array
+  // Load history
   let history = JSON.parse(localStorage.getItem("moodlite_history") || "[]");
 
-  // Add the new message to history (avoid duplicates if same timestamp)
-  const exists = history.some((msg) => msg.timestamp === payload.timestamp);
-  if (!exists) {
-    history.push(payload);
+  const alreadyStored = history.some((msg) => msg.timestamp === payload.timestamp);
+  if (!alreadyStored) {
+    history.unshift(payload);
     localStorage.setItem("moodlite_history", JSON.stringify(history));
   }
 
@@ -29,23 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
     gift.classList.remove("hidden");
     gift.classList.add("fade-in");
 
-    // Show the gift item
     const filename = payload.item.toLowerCase().replace(/\s+/g, "-") + ".png";
     giftImg.src = `assets/icons/${filename}`;
     giftImg.alt = payload.item;
-
-    // Show custom or fallback message
-    giftText.textContent = payload.message
-      ? payload.message
-      : `You received a ${payload.item}!`;
+    giftText.textContent = payload.message || `You received a ${payload.item}!`;
 
     reactionsDiv.classList.remove("hidden");
 
-    // Show message history
+    // Render message history below the card
     renderHistory();
   });
 
-  // Emoji reactions
   document.querySelectorAll(".reactions .emoji-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const reaction = btn.textContent;
@@ -55,20 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Render message history
   function renderHistory() {
     const historyData = JSON.parse(localStorage.getItem("moodlite_history") || "[]");
     if (!historyData.length) return;
 
     historyDiv.classList.remove("hidden");
     historyDiv.innerHTML = `
-      <h2>Past Messages</h2>
-      <ul>
+      <h2 class="history-title">Past Messages</h2>
+      <ul class="history-list">
         ${historyData
           .map(
             (entry) => `
-          <li>
-            <strong>${entry.item}</strong>: ${entry.message || "(no message)"}
+          <li class="history-item">
+            <strong>${entry.item}</strong> — ${entry.message || "(no message)"}
+            <br>
             <span class="timestamp">${new Date(entry.timestamp).toLocaleString()}</span>
           </li>
         `
